@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="GoodsMovement"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:doc="http://schemas.telekom.net/csdg-service-documentation_v01.01"
+	xsi:schemaLocation="http://schemas.telekom.net/csdg-service-documentation_v01.01 ../../../../xsds-csdg/csdg-service-documentation_v01.01.xsd"
+	xmlns:csdg="http://schemas.telekom.net/csdg_v01.02"
+	targetNamespace="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/GoodsMovement/v1"
+	xmlns:tns="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/GoodsMovement/v1"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:service="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/GoodsMovement/v1"
+>
+	<documentation>
+		<!-- !! @AUTHORS: INCREMENT VERSION NUMBER AND ADAPT "kind-of-creation" AFTER CHANGES !! -->
+		<doc:service governance-area="tint" domain="SupAndPartMgmt" functional-component="LogWarehouseMgmt" version="01.00.000" version-date="2017-02-21" >
+			<doc:description>
+				-------------------------- Service GoodsMovement -----------------------------
+			</doc:description>
+			<doc:designer>mailto:Marija.Resetar@external.t-systems.com</doc:designer>
+			<doc:kind-of-creation>GENERATED</doc:kind-of-creation>
+			<doc:change predecessorVersion="01.00.000" by="M.Resetar" date="2017-02-21" doc:lang="en">initial</doc:change>
+		</doc:service>
+	</documentation>
+	<types>
+		<xsd:schema
+			targetNamespace="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/GoodsMovement/v1"
+			elementFormDefault="qualified"
+			attributeFormDefault="unqualified"
+			version="01.00"
+			xmlns:types="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/GoodsMovement/v1/types"
+		>
+			<!-- ****************************************************************** -->
+			<xsd:import namespace="http://schemas.telekom.net/csdg_v01.02" schemaLocation="../../../../xsds-csdg/csdg_v01.02.xsd"/>
+			<xsd:import namespace="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/GoodsMovement/v1/types" schemaLocation="GoodsMovement.1.0.xsd"/>
+			<!-- ****************************************************************** -->
+			<xsd:element name="sendGoodsMovement" type="types:SendGoodsMovementType"/>
+		</xsd:schema>
+	</types>
+	<!-- ****************************************************************** -->
+	<!-- Messages : -->
+	<!-- ****************************************************************** -->
+	<message name="SendGoodsMovement">
+		<part name="parameters" element="tns:sendGoodsMovement"/>
+	</message>
+	<message name="EmptyTechnicalResponse">
+		<part name="parameters" element="csdg:empty"/>
+	</message>
+	<message name="TechnicalFault">
+		<part name="parameters" element="csdg:technicalFault"/>
+	</message>
+	<!-- ****************************************************************** -->
+	<!-- PortTypes : -->
+
+	<!-- ****************************************************************** -->
+	<!-- Consumer : -->
+	<portType name="GoodsMovementConsumer">
+		<operation name="sendGoodsMovement">
+			<documentation>
+				<doc:operation mep="Notification" access="Write">
+					<doc:description>
+						-------------------------- @TODO:DESCRIBE_ME - Operation &quot;sendGoodsMovement&quot; -----------------------------
+					</doc:description>
+				</doc:operation>
+			</documentation>
+			<input message="tns:SendGoodsMovement"/>
+			<output message="tns:EmptyTechnicalResponse"/>
+			<fault message="tns:TechnicalFault" name="TechnicalFault"/>
+		</operation>
+	</portType> 
+	<binding name="GoodsMovementConsumerBinding" type="service:GoodsMovementConsumer">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="sendGoodsMovement">
+			<soap:operation soapAction="sendGoodsMovement"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap:fault name="TechnicalFault" use="literal"/>
+			</fault>
+		</operation>
+	</binding>
+	<service name="GoodsMovementConsumerService">
+		<port name="GoodsMovementConsumerPort" binding="tns:GoodsMovementConsumerBinding">
+			<soap:address location="http://REPLACE_WITH_ACTUAL_URL"/>
+		</port>
+	</service>
+</definitions>

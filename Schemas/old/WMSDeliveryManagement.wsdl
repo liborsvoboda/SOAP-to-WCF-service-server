@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="WMSDeliveryManagementDefinitions"
+	targetNamespace="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/services/wmsdeliverymanagement"
+	xmlns:tns="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/services/wmsdeliverymanagement"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soabp="http://messaging.ei.tmobile.net/wsdl"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<!-- version: -UNDEFINDED- -->
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/services/wmsdeliverymanagement"
+			xmlns="http://www.w3.org/2001/XMLSchema"
+			xmlns:ei_messaging_datatypes="http://messaging.ei.tmobile.net/datatypes"
+			xmlns:tns="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/services/wmsdeliverymanagement"
+			xmlns:cz_tmobile_supplypartnermanagement_logisticsordermanagement_ws_datatypes="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/datatypes/wmsdeliverymanagement"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="qualified"
+			attributeFormDefault="qualified"
+			version="-UNDEFINDED-">
+			<xsd:import namespace="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/datatypes/wmsdeliverymanagement"
+				schemaLocation="cz.tmobile.supplypartnermanagement.logisticsordermanagement.ws.datatypes.wmsdeliverymanagement.xsd" />
+			<xsd:import namespace="http://messaging.ei.tmobile.net/datatypes"
+				schemaLocation="ei.messaging.datatypes.xsd" />
+
+
+			<!-- faults -->
+			<xsd:element name="TechnicalExceptionElement" type="ei_messaging_datatypes:SOABPException2" />
+
+
+			<!-- notifyPackageStatus-input-element -->
+			<xsd:element name="notifyPackageStatus">
+				<xsd:complexType>
+					<xsd:sequence>
+						<!-- REQUIRED structure-element "eiMessageContext2" -->
+						<xsd:element name="eiMessageContext" type="ei_messaging_datatypes:EIMessageContext2" minOccurs="1" maxOccurs="1" />
+						<!-- REQUIRED structure-element "data" -->
+						<xsd:element name="data" type="cz_tmobile_supplypartnermanagement_logisticsordermanagement_ws_datatypes:WMSDeliveryManagement_notifyPackageStatusRequest" minOccurs="1" maxOccurs="1" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+
+			<!-- notifyPackageStatus-output-element -->
+			<xsd:element name="notifyPackageStatusOutput">
+				<xsd:complexType>
+					<xsd:sequence>
+						<!-- REQUIRED structure-element "eiMessageContext2" -->
+						<xsd:element name="eiMessageContext" type="ei_messaging_datatypes:EIMessageContext2" minOccurs="1" maxOccurs="1" />
+						<!-- REQUIRED structure-element "data" -->
+						<xsd:element name="data" type="cz_tmobile_supplypartnermanagement_logisticsordermanagement_ws_datatypes:WMSDeliveryManagement_notifyPackageStatusResponse" minOccurs="1" maxOccurs="1" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<!-- receiveCourierLabel-input-element -->
+			<xsd:element name="receiveCourierLabel">
+				<xsd:complexType>
+					<xsd:sequence>
+						<!-- REQUIRED structure-element "eiMessageContext2" -->
+						<xsd:element name="eiMessageContext" type="ei_messaging_datatypes:EIMessageContext2" minOccurs="1" maxOccurs="1" />
+						<!-- REQUIRED structure-element "data" -->
+						<xsd:element name="data" type="cz_tmobile_supplypartnermanagement_logisticsordermanagement_ws_datatypes:WMSDeliveryManagement_receiveCourierLabelRequest" minOccurs="1" maxOccurs="1" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+
+			<!-- receiveCourierLabel-output-element -->
+			<xsd:element name="receiveCourierLabelOutput">
+				<xsd:complexType>
+					<xsd:sequence>
+						<!-- REQUIRED structure-element "eiMessageContext2" -->
+						<xsd:element name="eiMessageContext" type="ei_messaging_datatypes:EIMessageContext2" minOccurs="1" maxOccurs="1" />
+						<!-- REQUIRED structure-element "data" -->
+						<xsd:element name="data" type="cz_tmobile_supplypartnermanagement_logisticsordermanagement_ws_datatypes:WMSDeliveryManagement_receiveCourierLabelResponse" minOccurs="1" maxOccurs="1" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+		</xsd:schema>
+	</wsdl:types>
+
+
+	<!-- notifyPackageStatus-input-message -->
+	<wsdl:message name="notifyPackageStatusInput">
+		<wsdl:part name="parameters" element="tns:notifyPackageStatus" />
+	</wsdl:message>
+
+	<!-- notifyPackageStatus-output-message -->
+	<wsdl:message name="notifyPackageStatusOutput">
+		<wsdl:part name="parameters" element="tns:notifyPackageStatusOutput" />
+	</wsdl:message>
+
+	<!-- receiveCourierLabel-input-message -->
+	<wsdl:message name="receiveCourierLabelInput">
+		<wsdl:part name="parameters" element="tns:receiveCourierLabel" />
+	</wsdl:message>
+
+	<!-- receiveCourierLabel-output-message -->
+	<wsdl:message name="receiveCourierLabelOutput">
+		<wsdl:part name="parameters" element="tns:receiveCourierLabelOutput" />
+	</wsdl:message>
+
+
+	<!-- fault-messages -->
+	<wsdl:message name="TechnicalExceptionMessage">
+		<wsdl:part name="parameters" element="tns:TechnicalExceptionElement" />
+	</wsdl:message>
+
+	<!-- porttype -->
+	<wsdl:portType name="WMSDeliveryManagement">
+        <wsdl:documentation>
+            <soabp:ProviderPortType/>
+        </wsdl:documentation>
+
+		<wsdl:operation name="notifyPackageStatus">
+            <wsdl:documentation>
+                <soabp:RequestResponseOperation/>
+            </wsdl:documentation>
+			<wsdl:input message="tns:notifyPackageStatusInput" />
+			<wsdl:output message="tns:notifyPackageStatusOutput" />
+			<wsdl:fault name="TechnicalExceptionFault" message="tns:TechnicalExceptionMessage" />
+		</wsdl:operation>
+
+		<wsdl:operation name="receiveCourierLabel">
+            <wsdl:documentation>
+                <soabp:RequestResponseOperation/>
+            </wsdl:documentation>
+			<wsdl:input message="tns:receiveCourierLabelInput" />
+			<wsdl:output message="tns:receiveCourierLabelOutput" />
+			<wsdl:fault name="TechnicalExceptionFault" message="tns:TechnicalExceptionMessage" />
+		</wsdl:operation>
+
+	</wsdl:portType>
+
+	<!-- binding -->
+	<wsdl:binding name="WMSDeliveryManagementBinding" type="tns:WMSDeliveryManagement">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="notifyPackageStatus">
+			<soap:operation soapAction="/webservices/WMSDeliveryManagement/notifyPackageStatus"/>
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="TechnicalExceptionFault">
+				<soap:fault name="TechnicalExceptionFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="receiveCourierLabel">
+			<soap:operation soapAction="/webservices/WMSDeliveryManagement/receiveCourierLabel"/>
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="TechnicalExceptionFault">
+				<soap:fault name="TechnicalExceptionFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+	<!-- service -->
+	<wsdl:service name="WMSDeliveryManagementService">
+		<wsdl:documentation></wsdl:documentation>
+		<wsdl:port name="WMSDeliveryManagement" binding="tns:WMSDeliveryManagementBinding">
+			<soap:address location="http://localhost:8080/cz-tmobile-supplypartnermanagement-logisticsordermanagement-ws-services-wmsdeliverymanagement.soap2jms/" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
+	

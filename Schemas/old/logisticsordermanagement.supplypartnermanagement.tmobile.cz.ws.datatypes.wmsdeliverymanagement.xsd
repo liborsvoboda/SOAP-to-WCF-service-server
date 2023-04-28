@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/datatypes/wmsdeliverymanagement" elementFormDefault="qualified" targetNamespace="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/datatypes/wmsdeliverymanagement" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:53827/WMS.svc?xsd=xsd1" namespace="http://messaging.ei.tmobile.net/datatypes" />
+  <xs:complexType name="WMSDeliveryManagement_notifyPackageStatusRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="sapId" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="orderId" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="shipmentId" type="xs:string" />
+      <xs:element xmlns:q1="http://messaging.ei.tmobile.net/datatypes" minOccurs="1" maxOccurs="1" name="packageStatus" type="q1:packageStatus" />
+      <xs:element xmlns:q2="http://messaging.ei.tmobile.net/datatypes" minOccurs="0" maxOccurs="1" name="listOfDocuments" type="q2:listOfDocuments" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WMSDeliveryManagement_notifyPackageStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="someData" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WMSDeliveryManagement_receiveCourierLabelRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="someData" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WMSDeliveryManagement_receiveCourierLabelResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="someData" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

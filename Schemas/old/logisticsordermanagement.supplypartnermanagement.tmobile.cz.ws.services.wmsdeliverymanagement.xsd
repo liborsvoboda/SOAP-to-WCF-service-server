@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/services/wmsdeliverymanagement" elementFormDefault="qualified" targetNamespace="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/services/wmsdeliverymanagement" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:53827/WMS.svc?xsd=xsd1" namespace="http://messaging.ei.tmobile.net/datatypes" />
+  <xs:import schemaLocation="http://localhost:53827/WMS.svc?xsd=xsd2" namespace="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/datatypes/wmsdeliverymanagement" />
+  <xs:element name="notifyPackageStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://messaging.ei.tmobile.net/datatypes" minOccurs="0" maxOccurs="1" name="eiMessageContext" type="q1:EIMessageContext2" />
+        <xs:element xmlns:q2="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/datatypes/wmsdeliverymanagement" minOccurs="0" maxOccurs="1" name="data" type="q2:WMSDeliveryManagement_notifyPackageStatusRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="notifyPackageStatusOutput">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://messaging.ei.tmobile.net/datatypes" minOccurs="0" maxOccurs="1" name="eiMessageContext" type="q3:EIMessageContext3" />
+        <xs:element xmlns:q4="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/datatypes/wmsdeliverymanagement" minOccurs="0" maxOccurs="1" name="data" type="q4:WMSDeliveryManagement_notifyPackageStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q5="http://messaging.ei.tmobile.net/datatypes" name="TechnicalExceptionElement" type="q5:SOABPException2" />
+  <xs:element name="receiveCourierLabel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://messaging.ei.tmobile.net/datatypes" minOccurs="0" maxOccurs="1" name="eiMessageContext" type="q6:EIMessageContext2" />
+        <xs:element xmlns:q7="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/datatypes/wmsdeliverymanagement" minOccurs="0" maxOccurs="1" name="data" type="q7:WMSDeliveryManagement_receiveCourierLabelRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="receiveCourierLabelOutput">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://messaging.ei.tmobile.net/datatypes" minOccurs="0" maxOccurs="1" name="eiMessageContext" type="q8:EIMessageContext2" />
+        <xs:element xmlns:q9="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/datatypes/wmsdeliverymanagement" minOccurs="0" maxOccurs="1" name="data" type="q9:WMSDeliveryManagement_receiveCourierLabelResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

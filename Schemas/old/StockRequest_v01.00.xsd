@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+	targetNamespace="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/StockRequest_v01.00/types"
+	xmlns:tns="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/StockRequest_v01.00/types"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:csdg="http://schemas.telekom.net/csdg_v01.01"
+	elementFormDefault="qualified"
+	attributeFormDefault="unqualified"
+	version="01.00.000"
+	>
+	<!-- !! @AUTHORS: INCREMENT VERSION NUMBER AFTER CHANGES !! -->
+	<annotation>
+		<documentation>
+		contains datatype-definitions specific for the StockRequest-service.
+		</documentation>
+	</annotation>
+	<!-- ****************************************************************** -->
+	<import namespace="http://schemas.telekom.net/csdg_v01.01" schemaLocation="../../../../xsds-csdg/csdg_v01.01.xsd"/>
+	<!-- Place your imports here, if required -->
+	<xsd:complexType name="StockHeader">
+		<xsd:sequence>
+			<xsd:element name="plant">
+				<xsd:annotation>
+					<xsd:documentation>
+               Plant
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="4" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="storLoc">
+				<xsd:annotation>
+					<xsd:documentation>
+               Storage Location
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="4" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="materialNumber" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Material Number
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="18" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="valType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Valuation Type
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="withDetails" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               X - contains details SN and UIID
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- ****************************************************************** -->
+	<xsd:complexType name="StatusBAPI">
+		<xsd:sequence>
+			<xsd:element name="item" type="tns:StatusBAPIItem" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StatusBAPIItem">
+		<xsd:sequence>
+			<xsd:element name="TYPE" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Message type: S Success, E Error, W Warning, I Info, A Abort
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="ID" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Message Class
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="NUMBER" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Message Number
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MESSAGE" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Message Text
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="220" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LOG_NO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Application log: log number
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="LOG_MSG_NO" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Application log: Internal message serial number
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="6" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MESSAGE_V1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Message Variable
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MESSAGE_V2" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Message Variable
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MESSAGE_V3" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Message Variable
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="MESSAGE_V4" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Message Variable
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StatusHeaderItem">
+		<xsd:sequence>
+			<xsd:element name="qualifier">
+				<xsd:annotation>
+					<xsd:documentation>
+               Qualifier
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="value">
+				<xsd:annotation>
+					<xsd:documentation>
+               Value
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="50" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StatusHeader">
+		<xsd:sequence>
+			<xsd:element name="statusType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="20" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="item" type="tns:StatusHeaderItem" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StockAvailabilityItem">
+		<xsd:sequence>
+			<xsd:element name="plant">
+				<xsd:annotation>
+					<xsd:documentation>
+               Plant
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="4" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="storLoc">
+				<xsd:annotation>
+					<xsd:documentation>
+               Storage location
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="4" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="stockType">
+				<xsd:annotation>
+					<xsd:documentation>
+               Stock type
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="stockInd">
+				<xsd:annotation>
+					<xsd:documentation>
+               Special stock indicator
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="materialNumber">
+				<xsd:annotation>
+					<xsd:documentation>
+               Material Number
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="18" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="valType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               valuation Type
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="UIID" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               UIID
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="72" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="SN" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Serial Number
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="18" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="quan" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Quantity
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:decimal">
+						<xsd:totalDigits value="13" />
+						<xsd:fractionDigits value="3" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="uom" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+               Unit of meassure
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- ****************************************************************** -->
+	<complexType name="StockRequestInputData">
+		<sequence>
+			<xsd:element name="item" type="tns:StockHeader" minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<!-- ****************************************************************** -->
+	<complexType name="StockRequestOutputData">
+		<sequence>
+			<xsd:element name="processingStatus">
+				<xsd:annotation>
+					<xsd:documentation>
+               OK, NOK
+					</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="3" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Items" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="item" type="tns:StockAvailabilityItem" minOccurs="0" maxOccurs="unbounded" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Status" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="StatusHeader" type="tns:StatusHeader" minOccurs="0" />
+						<xsd:element name="StatusBAPI" type="tns:StatusBAPI" minOccurs="0" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</sequence>
+	</complexType>
+	<!-- ****************************************************************** -->
+	<complexType name="StockRequestRequestType">
+		<sequence>
+			<element name="context" type="csdg:TCContext"/>
+			<element name="data" type="tns:StockRequestInputData"/>
+		</sequence>
+	</complexType>
+	<!-- ****************************************************************** -->
+	<complexType name="StockRequestResponseType">
+		<sequence>
+			<element name="context" type="csdg:TCContext"/>
+			<element name="data" type="tns:StockRequestOutputData"/>
+		</sequence>
+	</complexType>
+	<!-- ****************************************************************** -->
+	<complexType name="StockRequestFaultType">
+		<sequence>
+			<group ref="csdg:TCAsynchronousFaultHeader"/>
+			<element name="detail">
+				<complexType>
+					<choice>
+						<element ref="csdg:technicalFault"/> <!-- mandatory ref -->
+					</choice>
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+
+
+</schema>

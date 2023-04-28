@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="StockRequest"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:doc="http://schemas.telekom.net/csdg-service-documentation_v01.01"
+	xsi:schemaLocation="http://schemas.telekom.net/csdg-service-documentation_v01.01 ../../../../xsds-csdg/csdg-service-documentation_v01.01.xsd"
+	xmlns:csdg="http://schemas.telekom.net/csdg_v01.01"
+	targetNamespace="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/StockRequest_v01.00"
+	xmlns:tns="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/StockRequest_v01.00"
+>
+	<documentation>
+		<!-- !! @AUTHORS: INCREMENT VERSION NUMBER AND ADAPT "kind-of-creation" AFTER CHANGES !! -->
+		<doc:service governance-area="tint" domain="SupAndPartMgmt" functional-component="LogWarehouseMgmt" version="01.00.000" version-date="2019-03-29" >
+			<doc:description>
+				-------------------------- @TODO:DESCRIBE_ME - Service &quot;StockRequest&quot; -----------------------------
+			</doc:description>
+			<doc:designer>mailto:Kemal.Kaygusuz@external.telekom.de</doc:designer>
+			<doc:kind-of-creation>GENERATED</doc:kind-of-creation>
+			<doc:change predecessorVersion="01.00.000" by="K.Kaygusuz" date="2019-03-29" doc:lang="en">initial</doc:change>
+		</doc:service>
+	</documentation>
+	<types>
+		<xsd:schema
+			targetNamespace="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/StockRequest_v01.00"
+			elementFormDefault="qualified"
+			attributeFormDefault="unqualified"
+			version="01.00"
+			xmlns:types="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/StockRequest_v01.00/types"
+		>
+			<!-- ****************************************************************** -->
+			<xsd:import namespace="http://schemas.telekom.net/csdg_v01.01" schemaLocation="../../../../xsds-csdg/csdg_v01.01.xsd"/>
+			<xsd:import namespace="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/StockRequest_v01.00/types" schemaLocation="StockRequest_v01.00.xsd"/>
+			<!-- ****************************************************************** -->
+			<xsd:element name="stockRequest" type="types:StockRequestRequestType"/>
+			<xsd:element name="stockRequestCallback" type="types:StockRequestResponseType"/>
+			<xsd:element name="stockRequestFault" type="types:StockRequestFaultType"/>
+		</xsd:schema>
+	</types>
+	<!-- ****************************************************************** -->
+	<!-- Messages : -->
+	<!-- ****************************************************************** -->
+	<message name="StockRequestRequest">
+		<part name="parameters" element="tns:stockRequest"/>
+	</message>
+	<message name="StockRequestResponse">
+		<part name="parameters" element="tns:stockRequestCallback"/>
+	</message>
+	<message name="StockRequestFault">
+		<part name="parameters" element="tns:stockRequestFault"/>
+	</message>
+	<message name="EmptyTechnicalResponse">
+		<part name="parameters" element="csdg:empty"/>
+	</message>
+	<message name="TechnicalFault">
+		<part name="parameters" element="csdg:technicalFault"/>
+	</message>
+	<!-- ****************************************************************** -->
+	<!-- PortTypes : -->
+	<!-- ****************************************************************** -->
+	<!-- Provider: -->
+	<portType name="StockRequest">
+		<operation name="stockRequest">
+			<documentation>
+				<doc:operation mep="RequestCallback" access="ReadOnly">
+					<doc:description>
+						-------------------------- @TODO:DESCRIBE_ME - Operation &quot;stockRequest&quot; -----------------------------
+					</doc:description>
+				</doc:operation>
+			</documentation>
+			<input message="tns:StockRequestRequest"/>
+			<output message="tns:EmptyTechnicalResponse"/>
+			<fault message="tns:TechnicalFault" name="TechnicalFault"/>
+		</operation>
+	</portType>
+	<!-- ****************************************************************** -->
+	<!-- Consumer : -->
+	<portType name="StockRequestConsumer">
+		<operation name="stockRequestCallback">
+			<input message="tns:StockRequestResponse"/>
+			<output message="tns:EmptyTechnicalResponse"/>
+			<fault message="tns:TechnicalFault" name="TechnicalFault"/>
+		</operation>
+		<operation name="stockRequestFault">
+			<input message="tns:StockRequestFault"/>
+			<output message="tns:EmptyTechnicalResponse"/>
+			<fault message="tns:TechnicalFault" name="TechnicalFault"/>
+		</operation>
+	</portType>
+</definitions>

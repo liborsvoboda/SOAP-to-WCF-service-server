@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://messaging.ei.tmobile.net/datatypes" elementFormDefault="qualified" targetNamespace="http://messaging.ei.tmobile.net/datatypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="EIMessageContext2">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="target" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="replyTo" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="requestId" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="timeLeft" type="xs:long" />
+      <xs:element minOccurs="0" maxOccurs="1" name="priority" type="xs:short" />
+      <xs:element minOccurs="0" maxOccurs="1" name="redelivered" type="tns:EIMessageRedelivered" />
+      <xs:element minOccurs="0" maxOccurs="1" name="revision" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="sender" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="correlationId" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="sequenceId" type="xs:positiveInteger" />
+      <xs:element minOccurs="0" maxOccurs="1" name="properties" type="tns:ArrayOfEIMessageProperty" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="EIMessageRedelivered">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CLIENT" />
+      <xs:enumeration value="SOABP" />
+      <xs:enumeration value="MANUAL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfEIMessageProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="property" type="tns:EIMessageProperty" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EIMessageProperty">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute form="qualified" name="name" type="xs:string" />
+        <xs:attribute form="qualified" name="policy" type="xs:string" />
+        <xs:attribute default="false" form="qualified" name="mustUnderstand" type="xs:boolean" />
+        <xs:attribute form="qualified" name="type">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="boolean" />
+              <xs:enumeration value="byte" />
+              <xs:enumeration value="short" />
+              <xs:enumeration value="int" />
+              <xs:enumeration value="long" />
+              <xs:enumeration value="float" />
+              <xs:enumeration value="double" />
+              <xs:enumeration value="string" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="packageStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="finish" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="listOfDocuments">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="document" type="tns:document" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="document">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="documentType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="templateId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="documentDescription" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="barCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EIMessageContext3">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="responseCode" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="errorMessage" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SOABPException2" mixed="true">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+    </xs:sequence>
+    <xs:anyAttribute />
+  </xs:complexType>
+</xs:schema>

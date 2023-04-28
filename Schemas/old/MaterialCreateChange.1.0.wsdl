@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="MaterialCreateChange"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:doc="http://schemas.telekom.net/csdg-service-documentation_v01.01"
+	xsi:schemaLocation="http://schemas.telekom.net/csdg-service-documentation_v01.01 ../../../../xsds-csdg/csdg-service-documentation_v01.01.xsd"
+	xmlns:csdg="http://schemas.telekom.net/csdg_v01.02"
+	targetNamespace="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/MaterialCreateChange/v1"
+	xmlns:tns="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/MaterialCreateChange/v1"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:service="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/MaterialCreateChange/v1"
+>
+	<documentation>
+		<!-- !! @AUTHORS: INCREMENT VERSION NUMBER AND ADAPT "kind-of-creation" AFTER CHANGES !! -->
+		<doc:service governance-area="tint" domain="SupAndPartMgmt" functional-component="LogWarehouseMgmt" version="01.00.000" version-date="2017-02-21" >
+			<doc:description>
+				-------------------------- @TODO:DESCRIBE_ME - Service &quot;MaterialCreateChange&quot; -----------------------------
+			</doc:description>
+			<doc:designer>mailto:marija.resetar@external.t-systems.com</doc:designer>
+			<doc:kind-of-creation>GENERATED</doc:kind-of-creation>
+			<doc:change predecessorVersion="01.00.000" by="M.Resetar" date="2017-02-21" doc:lang="en">initial</doc:change>
+		</doc:service>
+	</documentation>
+	<types>
+		<xsd:schema
+			targetNamespace="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/MaterialCreateChange/v1"
+			elementFormDefault="qualified"
+			attributeFormDefault="unqualified"
+			version="01.00"
+			xmlns:types="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/MaterialCreateChange/v1/types"
+		>
+			<!-- ****************************************************************** -->
+			<xsd:import namespace="http://schemas.telekom.net/csdg_v01.02" schemaLocation="../../../../xsds-csdg/csdg_v01.02.xsd"/>
+			<xsd:import namespace="http://services.tint.telekom.net/SupAndPartMgmt/LogWarehouseMgmt/MaterialCreateChange/v1/types" schemaLocation="MaterialCreateChange.1.0.xsd"/>
+			<!-- ****************************************************************** -->
+			<xsd:element name="createOrChangeMaterial" type="types:CreateOrChangeMaterialType"/>
+		</xsd:schema>
+	</types>
+	<!-- ****************************************************************** -->
+	<!-- Messages : -->
+	<!-- ****************************************************************** -->
+	<message name="CreateOrChangeMaterial">
+		<part name="parameters" element="tns:createOrChangeMaterial"/>
+	</message>
+	<message name="EmptyTechnicalResponse">
+		<part name="parameters" element="csdg:empty"/>
+	</message>
+	<message name="TechnicalFault">
+		<part name="parameters" element="csdg:technicalFault"/>
+	</message>
+	<!-- ****************************************************************** -->
+	<!-- PortTypes : -->
+ 
+	<!-- ****************************************************************** -->
+	<!-- Consumer : -->
+	<portType name="MaterialCreateChangeConsumer">
+		<operation name="createOrChangeMaterial">
+			<documentation>
+				<doc:operation mep="Notification" access="Write">
+					<doc:description>
+						-------------------------- @TODO:DESCRIBE_ME - Operation &quot;createOrChangeMaterial&quot; -----------------------------
+					</doc:description>
+				</doc:operation>
+			</documentation>
+			<input message="tns:CreateOrChangeMaterial"/>
+			<output message="tns:EmptyTechnicalResponse"/>
+			<fault message="tns:TechnicalFault" name="TechnicalFault"/>
+		</operation>
+	</portType> 
+	<binding name="MaterialCreateChangeConsumerBinding" type="service:MaterialCreateChangeConsumer">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="createOrChangeMaterial">
+			<soap:operation soapAction="createOrChangeMaterial"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap:fault name="TechnicalFault" use="literal"/>
+			</fault>
+		</operation>
+	</binding>
+	<service name="MaterialCreateChangeConsumerService">
+		<port name="MaterialCreateChangeConsumerPort" binding="tns:MaterialCreateChangeConsumerBinding">
+			<soap:address location="http://groupware-solution.eu:7777/ServiceWSDL.svc"/>
+		</port>
+	</service>
+</definitions>

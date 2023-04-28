@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	targetNamespace="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/datatypes/wmsdeliverymanagement"
+	xmlns:tns="http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/datatypes/wmsdeliverymanagement"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:ei_messaging_datatypes="http://messaging.ei.tmobile.net/datatypes"
+	elementFormDefault="qualified"
+	attributeFormDefault="qualified"
+	version="0.4"
+	>
+	<!-- !! @AUTHORS: INCREMENT VERSION NUMBER AFTER CHANGES !! -->
+	<xsd:annotation>
+		<xsd:documentation>
+		contains the wsdl-comprehensive data type definitions (reused in more than one wsdl-File)
+		for http://logisticsordermanagement.supplypartnermanagement.tmobile.cz/ws/services/wmsdeliverymanagement
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<!-- import of EI (global) data types -->
+	<xsd:import namespace="http://messaging.ei.tmobile.net/datatypes" schemaLocation="ei.messaging.datatypes.xsd" />
+
+		
+
+			
+	<complexType name="WMSDeliveryManagement_notifyPackageStatusRequest">
+		<xsd:annotation>
+			<xsd:documentation>
+				The payload for the request of operation 'notifyPackageStatus' of port-type 'WMSDeliveryManagement'
+			</xsd:documentation>
+		</xsd:annotation>
+		<sequence>
+			<!-- TODO: define the business payload ... -->
+			<element name="someData" type="xsd:string" />
+		</sequence>
+	</complexType>
+
+	<complexType name="WMSDeliveryManagement_notifyPackageStatusResponse">
+		<xsd:annotation>
+			<xsd:documentation>
+				The payload for the response of operation 'notifyPackageStatus' of port-type 'WMSDeliveryManagement'
+			</xsd:documentation>
+		</xsd:annotation>
+		<sequence>
+			<!-- TODO: define the business payload ... -->
+			<element name="someData" type="xsd:string" />
+		</sequence>
+	</complexType>
+			
+
+		
+
+			
+	<complexType name="WMSDeliveryManagement_receiveCourierLabelRequest">
+		<xsd:annotation>
+			<xsd:documentation>
+				The payload for the request of operation 'receiveCourierLabel' of port-type 'WMSDeliveryManagement'
+			</xsd:documentation>
+		</xsd:annotation>
+		<sequence>
+			<!-- TODO: define the business payload ... -->
+			<element name="someData" type="xsd:string" />
+		</sequence>
+	</complexType>
+
+	<complexType name="WMSDeliveryManagement_receiveCourierLabelResponse">
+		<xsd:annotation>
+			<xsd:documentation>
+				The payload for the response of operation 'receiveCourierLabel' of port-type 'WMSDeliveryManagement'
+			</xsd:documentation>
+		</xsd:annotation>
+		<sequence>
+			<!-- TODO: define the business payload ... -->
+			<element name="someData" type="xsd:string" />
+		</sequence>
+	</complexType>
+			
+
+		
+</xsd:schema>
+	
